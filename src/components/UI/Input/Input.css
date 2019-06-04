@@ -1,0 +1,61 @@
+.Input input {
+    margin-bottom: 15px;
+    width: 200px;
+}
+.Input label {
+    margin-bottom: 3px;
+    padding: 0;
+    display: block;
+    font-weight: bold;
+}
+
+.Input input {
+    display: block;
+    box-sizing: border-box;
+    border: 1px solid #bebebe;
+    padding: 7px;
+    margin: 0 0 5px;
+    width: 100%;
+    outline: none;
+    transition: all 300ms ease-in-out;
+}
+
+input:focus{
+    outline: none;
+}
+.Input span{
+    color:red;
+    font-size: 12px;
+    font-weight: bold;
+}
+.Input.invalid label{
+    color: red;
+}
+.errorAuth{
+    text-align: center;
+    position: absolute;
+    top:41%;
+    left: 71%;
+    font-weight: bold;
+    right: 650px;
+    background-color: #ffffff;
+    color:red;
+    width: 150px;
+    box-shadow: 10px 10px 5px 0 rgba(255,10,10,1);
+    border-radius: 7px;
+    padding: 10px;
+    height: 70px;
+}
+.Search-input input{
+    border: none;
+    background: none;
+    font-family: inherit;
+    color: inherit;
+    font-size: 1.5rem;
+    width: 30rem;
+}
+
+.auth-input input {
+    border-radius: 5px;
+    box-shadow: 2px 2px 7px 1px rgba(210, 111, 24, 0.66);
+}

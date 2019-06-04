@@ -15,8 +15,13 @@ export function fetchOrders() {
     }
 }
 export function fetchUpdateOrder(order) {
-    return async dispatch=>{
-        
+    return async (dispatch,getState)=>{
+        try{
+           const updateOrder = await axios.patch(`http://localhost:3000/admin/${order.order_id}`,order);
+           console.log(updateOrder);
+        }catch (e) {
+            console.log(e);
+        }
     }
 }
 export function fetchOrder(id) {
@@ -24,7 +29,6 @@ export function fetchOrder(id) {
         dispatch(fetchOrdersStart());
         try{
             const findOrder = await axios.get(`http://localhost:3000/admin/singular/${id}`);
-
             const order  = findOrder.data;
             console.log(order);
             dispatch(fetchOrderSuccess(order));

@@ -2,13 +2,15 @@ import React from 'react';
 import './OrderEditor.css';
 import {connect} from "react-redux";
 import Input from "../../components/UI/Input/Input";
-import {fetchOrder} from "../../store/actions/admin";
+import {fetchOrder, fetchUpdateOrder} from "../../store/actions/admin";
 import Button from "../../components/UI/Button/Button";
 
 
 class OrderEditor extends React.Component {
 
     state = {
+        selectedTeam: "",
+        selectedType: "",
         formControl: {
             FIO: {
                 value: this.props.location.state.fromOrder.name,
@@ -120,11 +122,27 @@ class OrderEditor extends React.Component {
         })
 
     };
+    submitHandler =(e)=>{
+        e.preventDefault();
+        const order = {
+            order_id:this.props.match.params.id,
+            status:this.state.selectedTeam,
+            address:this.state.formControl.address.value,
+            email:this.state.formControl.email.value,
+            client_name:this.state.formControl.FIO.value.split(' ')[0],
+            client_surname:this.state.formControl.FIO.value.split(' ')[1],
+            client_phone:this.state.formControl.phone_number.value,
+            notes:this.state.formControl.notes.value,
+            paymentType:this.state.selectedType
+        };
 
+        this.props.fetchUpdateOrder(order)
+    };
     render() {
         const statusValues = ['Готовиться','Ожидание', 'В пути'];
         const paymentTypes = ['Наличный','Оплата картой'];
         console.log(this.props.location.state.fromOrder);
+        console.log(this.state);
         return (
             <div className={'OrderEditor'}>
                 {this.props.location.state.fromOrder ?
@@ -150,28 +168,40 @@ class OrderEditor extends React.Component {
 
                             <span>{this.props.location.state.fromOrder.Courier}</span>
 
-                            <select>
+                            <select value={this.state.selectedTeam}
+                                    onChange={(e) => {
+                                        console.log(e.target);
+                                        this.setState({selectedTeam: e.target.value}
+                                    )
+                                    }}>
                                 {statusValues.map((status,index)=>{
                                     return(
                                            <React.Fragment key={index}>
                                             {status === this.props.location.state.fromOrder.status ?
-                                                <option selected value={index+1}>{status}</option>
+                                                <option selected value={status}>{status}</option>
                                                 :
-                                                <option value={index} >{status}</option>}
+                                                <option value={status} >{status}</option>}
                                            </React.Fragment>
                                         )
 
                                 })}
                             </select>
 
-                            <select>
+                            <select
+                                value={this.state.selectedType}
+                                onChange={(e) => {
+                                    console.log(e.target);
+                                    this.setState({selectedType: e.target.value}
+                                    )
+                                }}
+                            >
                                 {paymentTypes.map((type,index)=>{
                                     return(
                                         <React.Fragment key={index}>
                                             {type === this.props.location.state.fromOrder.payment ?
-                                                <option selected value={index+1}>{type}</option>
+                                                <option selected value={type}>{type}</option>
                                                 :
-                                                <option value={index} >{type}</option>}
+                                                <option value={type} >{type}</option>}
                                         </React.Fragment>
                                     )
 
@@ -199,7 +229,7 @@ function mapStateToProps(state) {
 }
 function mapDispatchToProps(dispatch) {
     return{
-
+        fetchUpdateOrder:(order)=>dispatch(fetchUpdateOrder(order))
     }
 }
 export default connect(mapStateToProps,mapDispatchToProps)(OrderEditor);
