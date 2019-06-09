@@ -8,6 +8,7 @@ import validator from 'validator';
 import {auth} from "../../store/actions/auth";
 import {signUp} from "../../store/actions/signUp";
 
+
 class SignUp extends React.Component {
     state={
         formControl: {
@@ -41,7 +42,7 @@ class SignUp extends React.Component {
                 value: '',
                 type: 'email',
                 label: 'Email',
-                placeholder: 'test@abc.db',
+                placeholder: 'example@gmail.com',
                 errorMessage: 'Enter the proper email',
                 valid: false,
                 touched: false,
@@ -67,7 +68,7 @@ class SignUp extends React.Component {
                 value: '',
                 type: 'text',
                 label: 'Phone number',
-                placeholder: '+(380)12-123-12-34',
+                placeholder: '+38(0XX)-XXX-XX-XX',
                 errorMessage: 'Enter the proper phone number',
                 valid: false,
                 touched: false,

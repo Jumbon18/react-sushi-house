@@ -1,0 +1,9 @@
+.nav-item {
+    margin: 5px 0 0 150px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 18px;
+}
+.navbar-brand {
+    margin-left: 20px;
+    font-family: 'Josefin Sans', sans-serif;
+}

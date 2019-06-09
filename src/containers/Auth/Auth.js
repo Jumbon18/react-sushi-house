@@ -5,41 +5,41 @@ import Button from "../../components/UI/Button/Button";
 import Input from "../../components/UI/Input/Input";
 import is from 'is_js';
 import {auth} from "../../store/actions/auth";
-class Auth extends React.Component{
-    _isMounted = false;
 
-    state={
-    errorAuth:false,
-    isFormValid: false,
-    formControl: {
-        email: {
-            value: '',
-            type: 'email',
-            label: 'Email',
-            placeholder: 'Enter your email',
-            errorMessage: 'Enter the proper email',
-            valid: false,
-            touched: false,
-            validation: {
-                required: true,
-                email: true
-            }
-        },
-        password: {
-            value: '',
-            type: 'password',
-            label: 'Password',
-            placeholder: 'Enter your password',
-            errorMessage: 'Enter the proper password',
-            valid: false,
-            touched: false,
-            validation: {
-                required: true,
-                minLength: 6
+class Auth extends React.Component {
+    _isMounted = false;
+    state = {
+        errorAuth: false,
+        isFormValid: false,
+        formControl: {
+            email: {
+                value: '',
+                type: 'email',
+                label: 'Email',
+                placeholder: 'Enter your email',
+                errorMessage: 'Enter the proper email',
+                valid: false,
+                touched: false,
+                validation: {
+                    required: true,
+                    email: true
+                }
+            },
+            password: {
+                value: '',
+                type: 'password',
+                label: 'Password',
+                placeholder: 'Enter your password',
+                errorMessage: 'Enter the proper password',
+                valid: false,
+                touched: false,
+                validation: {
+                    required: true,
+                    minLength: 6
+                }
             }
         }
-    }
-};
+    };
 
     validateControl(value, validation) {
         if (!validation) {
@@ -64,14 +64,14 @@ class Auth extends React.Component{
             event.preventDefault();
             const user = await this.props.auth(this.state.formControl.email.value,
                 this.state.formControl.password.value);
-        //    window.location = `/admin`
-        }catch (e) {
+            //    window.location = `/admin`
+        } catch (e) {
             this.setState({
-                    errorAuth: true
-                });
-    }
+                errorAuth: true
+            });
+        }
 
-        };
+    };
 
 
     onChangeHandler = (event, controlName) => {
@@ -88,7 +88,7 @@ class Auth extends React.Component{
 
         });
         this.setState({
-            formControl,isFormValid
+            formControl, isFormValid
         })
 
     };
@@ -124,16 +124,15 @@ class Auth extends React.Component{
                 </div>
                 <div>
                     <h1>Login</h1>
-                    //TODO:Регистрация
                     <form onSubmit={this.submitHandler} className={'AuthForm'}>
                         <div>{this.renderInputs()}</div>
-                      <div className="auth-buttons mt-5">
+                        <div className="auth-buttons mt-5">
                             <Button
-                                typeBtn="btn btn-primary login"
+                                typeBtn="btn btn-outline-primary login-btn"
                                 submitButton="submit"
                             >Sign In</Button>
                             <a href="/auth/signup">
-                                <Button  typeBtn="btn btn-outline-success">Sign up</Button>
+                                <Button typeBtn="btn btn-outline-success login-btn">Sign up</Button>
                             </a>
                         </div>
                     </form>
@@ -144,10 +143,9 @@ class Auth extends React.Component{
 };
 
 function mapStateToProps(state) {
-    return {
-
-    }
+    return {}
 }
+
 function mapDispatchToProps(dispatch) {
     return {
         auth: (email, password) => dispatch(auth(email, password)),

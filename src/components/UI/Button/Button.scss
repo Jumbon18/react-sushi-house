@@ -24,11 +24,13 @@ $attachment-point-border: 2px;
 .Button:focus, .btn:focus {
   outline: none;
 }
-
-.Button:active {
-  box-shadow: inset 2px 2px 1px rgba(0, 0, 0, .3);
-
+.nav-btn:focus, .cart-btn:focus, .delete-btn:focus, .like-btn:focus {
+  box-shadow: none;
 }
+
+/*.Button:active {
+  box-shadow: inset 2px 2px 1px rgba(0, 0, 0, .3);
+}*/
 
 .Button:disabled {
   background: #ccc;
@@ -90,21 +92,12 @@ $attachment-point-border: 2px;
   margin: 0;
 }
 
-.auth-btn {
-  width: 75px;
-  height: 75px;
-  padding: 0;
-  border-radius: 50%;
-}
-
 .login-btn {
-  background-image: linear-gradient(to right, pink, blue);
-  margin: 10px 0 0 135px;
+  width: 100px;
+  height: 60px;
 }
-
-.sign-btn {
-  background-image: linear-gradient(to bottom left, red, wheat);
-  margin: 10px 0 0 40px;
+.mt-5, .my-5 {
+  margin-top: 2rem!important;
 }
 
 .favorite-btn:hover {
@@ -155,4 +148,57 @@ $attachment-point-border: 2px;
   padding: 0;
   border-radius: 50%;
   margin-top: 15px;
+}
+.btn-save {
+  margin: 10px 10px 10px 430px;
+  width: 315px !important;
+}
+.btn-add {
+  margin: 5px 0 20px 123px;
+  width: 500px;
+}
+.btn-remove {
+  border: 1px green solid;
+  border-radius: 50%;
+  width: 54px;
+  height: 53px;
+}
+.nav-btn {
+  margin-left: 550px;
+  width: 45px;
+  height: 45px;
+  padding: 4px;
+}
+
+.nav-btn:hover {
+  cursor: pointer;
+}
+
+.cart-btn {
+  width: 42px;
+  height: 45px;
+  padding: 5px;
+  margin: 0 0 5px 20px
+}
+
+.btn-add-cart {
+  width: 400px;
+  margin: 15px 0 15px 80px;
+}
+
+.btn-product, .btn-dish {
+  position: fixed;
+  margin-top: 0;
+  margin-left: 1200px;
+  z-index: 1000;
+  padding: 15px;
+}
+
+.delete-btn img{
+  width: 40px;
+  height: 40px;
+  margin-top: -5px;
+}
+.to-cart-btn {
+  margin-left: 120px;
 }

@@ -1,12 +1,36 @@
 .OrderEditor{
     display: flex;
     justify-content: center;
-    padding-top: 100px;
     flex-grow: 1;
     width: 100%;
+    font-family: 'Exo 2', sans-serif;
+    background-image: url("../../images/gradient-2560x1920-google-pixel-3-xl-stock-hd-15325.png");
+    background-size: cover;
 }
-.order_redactor{
+.order_redactor {
     width: 800px;
-    background-color: #bebebe;
+    background-color: white;
     padding: 20px;
+    border-radius: 15px;
+    margin: 100px 0 100px 0;
 }
+.order_redactor h3, .order_redactor h1, .order_redactor h4{
+    text-align: center;
+    text-decoration: underline;
+    margin: 15px;
+}
+select {
+    padding: 7px;
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: blue 0 0 5px 0;
+}
+select:hover {
+    cursor: pointer;
+}
+.list-group-item {
+    text-align: center;
+    font-size: 17px;
+}
+
+

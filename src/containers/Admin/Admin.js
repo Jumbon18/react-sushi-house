@@ -3,6 +3,8 @@ import {connect} from "react-redux";
 import {fetchOrders} from "../../store/actions/admin";
 import OrderList from "../../components/OrderList/OrderList";
 import './Admin.css';
+import AdminLayout from "../../hoc/AdminLayout/AdminLayout";
+
 class Admin extends React.Component {
     componentDidMount() {
         this.props.fetchOrders();
@@ -13,12 +15,13 @@ class Admin extends React.Component {
         console.log(this.props.match.params);
 
         return (
-
+            <AdminLayout>
             <div className="Admin">
                 <OrderList
                     orderList={this.props.orderList}
                 />
             </div>
+            </AdminLayout>
         )
     }
 }

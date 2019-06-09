@@ -1,0 +1,36 @@
+.card {
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    height: 65px;
+}
+
+.card-footer {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+}
+
+.card-name {
+    text-align: center;
+    padding-top: 12px;
+    font-size: 17px;
+    font-weight: bold;
+}
+.card-price {
+    padding: 12px 0 0 35px;
+    font-size: 19px;
+}
+.card-link img{
+    margin-top: 5px;
+    width: 40px;
+    height: 40px;
+}
+.card-img {
+    width: 470px;
+    height: 380px;
+}

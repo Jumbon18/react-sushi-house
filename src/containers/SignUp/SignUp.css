@@ -1,15 +1,22 @@
-.AuthForm{
+.auth-form{
     background: #fff;
     box-shadow: 2px 2px 3px 3px rgba(0,0,0,.5);
     padding: 15px;
     border-radius: 5px;
     height: 300px;
     width: 550px;
-    margin-left: 65px;
+    margin: 120px 0 0 31%;
+    font-family: 'Exo 2', sans-serif;
 }
 .signup{
-    height: 550px;
+    height: 470px;
 }
+
+.SignUp {
+    background-image: linear-gradient(to bottom left,darkblue,wheat);
+    height: 800px;
+}
+
 .auth-buttons{
     display: flex;
     justify-content: space-around;
@@ -36,22 +43,3 @@
     display: block;
 }
 
-.Auth{
-    display: flex;
-    justify-content: center;
-    padding-top: 140px;
-    flex-grow: 1;
-    width: 100%;
-    background-image: url("../../images/sunlight-3840x2560-forest-morning-light-4k-17750.jpg");
-    background-size: cover;
-}
-.Auth div {
-    width: 100%;
-    max-width: 600px;
-    margin: 15px 0 10px 0;
-}
-.Auth h1 {
-    color: #fff;
-    text-align: center;
-    font-family: 'Questrial', sans-serif;
-}

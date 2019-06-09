@@ -11,3 +11,7 @@
     list-style: none;
     display: flex;
 }
+.order-td:last-child, .order-td:last-child:hover{
+    background-color: transparent;
+    border: none;
+}

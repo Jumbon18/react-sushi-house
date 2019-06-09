@@ -9,18 +9,6 @@ class Layout extends Component{
          <main>
              {this.props.children}
          </main>
-         {<footer className="footer" id="animate-area">
-             <div className="wrapper">
-                 <div>
-                     <h2>Awesome Weather Cast</h2>
-                     <p>Created by Alex Pyvovarov and Irina Telesheva</p>
-                 </div>
-                 <div className="footer-text">
-                     <p>Get our contacts:</p>
-
-                 </div>
-             </div>
-         </footer>}
      </div>
              );
 

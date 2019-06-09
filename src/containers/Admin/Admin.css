@@ -4,11 +4,13 @@
     padding-top: 140px;
     flex-grow: 1;
     width: 100%;
-
+    background-image: url("../../images/gradient-3111x1400-colorful-hd-15305.png");
     background-size: cover;
+    font-family: 'Exo 2', sans-serif;
 }
 .Admin div {
     width: 100%;
     max-width: 600px;
     margin: 15px 0 10px 0;
 }
+

@@ -1,0 +1,22 @@
+.dish {
+    width: 600px;
+    height: auto;
+    margin: 100px 0 100px 28%;
+    font-family: 'Josefin Sans', sans-serif;
+    background-color: white;
+    padding: 20px;
+    border-radius: 15px;
+}
+.dish-img {
+    width: 530px;
+    height: 400px;
+    margin-left: 15px;
+}
+.dish-props-list {
+    width: 550px;
+}
+.dish-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}

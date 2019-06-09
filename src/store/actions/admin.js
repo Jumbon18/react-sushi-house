@@ -5,11 +5,11 @@ export function fetchOrders() {
     return async dispatch =>{
         dispatch(fetchOrdersStart());
         try{
-            const globalData = await axios.get('http://localhost:3000/admin/allOrders');
+            const globalData = await axios.get('http://localhost:3030/admin');
             console.log(globalData);
             const orderList = globalData.data;
             dispatch(fetchOrdersSuccess(orderList))
-        }catch (e) {
+        } catch (e) {
             console.log(e);
         }
     }
@@ -17,7 +17,7 @@ export function fetchOrders() {
 export function fetchUpdateOrder(order) {
     return async (dispatch,getState)=>{
         try{
-           const updateOrder = await axios.patch(`http://localhost:3000/admin/${order.order_id}`,order);
+           const updateOrder = await axios.patch(`http://localhost:3030/admin/order/update/${order.order_id}`,order);
            console.log(updateOrder);
         }catch (e) {
             console.log(e);

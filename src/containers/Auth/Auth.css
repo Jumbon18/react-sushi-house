@@ -1,55 +1,55 @@
-.AuthForm{
+.AuthForm {
     background: #fff;
-    box-shadow: 2px 2px 3px 3px rgba(0,0,0,.5);
+    box-shadow: 2px 2px 3px 3px rgba(0, 0, 0, .5);
     padding: 15px;
     border-radius: 5px;
     height: 300px;
-    width: 550px;
-    margin-left: 65px;
+    width: 600px !important;
+    margin: 0 !important;
 }
-.signup{
+
+.signup {
     height: 550px;
 }
-.auth-buttons{
+
+.auth-buttons {
     display: flex;
     justify-content: space-around;
 }
-.auth-buttons a{
+
+.auth-buttons a {
     color: #28a745;
     text-decoration: none;
 }
-.auth-buttons a:hover{
+
+.auth-buttons a:hover {
     color: #ffffff;
 }
 
-#animate-area{
-    background-image: url('https://wallpapersite.com/images/pages/pic_h/11846.png');
-    background-position: 0px 0px;
-    width: 100%;
-    background-repeat: repeat-x;
-
-}
-.invalid-Auth{
+.invalid-Auth {
     display: none;
 }
-.show{
+
+.show {
     display: block;
 }
 
-.Auth{
+.Auth {
     display: flex;
     justify-content: center;
     padding-top: 140px;
     flex-grow: 1;
     width: 100%;
-    background-image: url("../../images/sunlight-3840x2560-forest-morning-light-4k-17750.jpg");
+    background-image: url("../../images/background.jpg") !important;
     background-size: cover;
 }
+
 .Auth div {
     width: 100%;
     max-width: 600px;
     margin: 15px 0 10px 0;
 }
+
 .Auth h1 {
     color: #fff;
     text-align: center;

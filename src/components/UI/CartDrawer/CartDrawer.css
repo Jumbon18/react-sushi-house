@@ -1,0 +1,50 @@
+.CartDrawer{
+    position: fixed;
+    right: 5px;
+    top: 60px;
+    overflow: auto;
+    border-radius: 10px;
+    opacity: 1;
+    width: 400px;
+    height: auto;
+    padding: 20px 10px;
+    box-sizing: border-box;
+    z-index: 90;
+    transition: opacity .2s ease-in-out;
+    background-color: #ffffff;
+    border: 1px solid #111111;
+    font-family: 'Exo 2', sans-serif;
+    display: block;
+}
+.CartDrawer.close{
+    opacity: 0 !important;
+    display: none;
+}
+
+.CartDrawer ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+
+.CartDrawer ul li{
+    margin-bottom: 25px;
+}
+.CartDrawer h4 {
+    text-align: center;
+}
+/*
+.Drawer ul li a{
+    color: darkblue;
+    font-size: 30px;
+    text-decoration: none;
+    padding: 0 10px 20px 10px;
+    position: relative;
+    transition: opacity .3s;
+}
+*/
+/*
+.Drawer ul li a:hover{
+    text-shadow: 2px 2px 2px white;
+}*/

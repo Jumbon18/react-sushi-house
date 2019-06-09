@@ -57,5 +57,6 @@ input:focus{
 
 .auth-input input {
     border-radius: 5px;
-    box-shadow: 2px 2px 7px 1px rgba(210, 111, 24, 0.66);
+    box-shadow: plum 3px 2px 7px 1px;
+    /*   box-shadow: 2px 2px 7px 1px rgba(210, 111, 24, 0.66);*/
 }
