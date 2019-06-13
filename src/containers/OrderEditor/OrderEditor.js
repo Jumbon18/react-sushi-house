@@ -2,13 +2,20 @@ import React from 'react';
 import './OrderEditor.css';
 import {connect} from "react-redux";
 import Input from "../../components/UI/Input/Input";
-import {fetchOrder, fetchUpdateOrder} from "../../store/actions/admin";
+import {
+    fetchAllDeishes,
+    fetchDeleteDishFromOrder, fetchDeleteDishInList,
+    fetchOrder,
+    fetchOrders,
+    fetchUpdateOrder
+} from "../../store/actions/admin";
 import Button from "../../components/UI/Button/Button";
 import sushi1 from "../../images/set-drakon.jpeg";
 import sushi2 from "../../images/philadelphia_mix.jpg";
 import rubbish from "../../images/delete.png";
 import MenuList from "../../components/MenuList/MenuList";
 import materialUI from '@material-ui/core';
+import MenuDrawer from "../../components/UI/MenuDrawer/MenuDrawer";
 
 class OrderEditor extends React.Component {
 
@@ -83,7 +90,12 @@ class OrderEditor extends React.Component {
             },
         }
     };
-
+    menuCloserHandler = () =>{
+        this.setState({
+            menu:!this.state.menu
+        });
+        this.props.fetchAllDeishes();
+    };
     renderInputs() {
         return Object.keys(this.state.formControl).map((controlName, index) => {
             const control = this.state.formControl[controlName];
@@ -156,11 +168,18 @@ class OrderEditor extends React.Component {
                                 {this.renderInputs()}
                             </div>
                             <h4>Дополнительная информация</h4>
-                            <ul className="list-group list-group-flush">
-                                <li className="list-group-item">Время оформления заказа:        {this.props.location.state.fromOrder.start}</li>
-                                <li className="list-group-item">Время доставки:     {this.props.location.state.fromOrder.end}</li>{/*
-                                <li className="list-group-item">Цена заказа:       {this.props.location.state.fromOrder.price}</li>*/}
-                                <li className="list-group-item">Статус заказа:
+                            <span>{this.props.location.state.fromOrder.start}</span>
+                            <br/>
+                            <span>{this.props.location.state.fromOrder.end}</span>
+                            <br/>
+
+                            <span>{this.props.location.state.fromOrder.price}</span>
+                            <br/>
+
+                            <span>{this.props.location.state.fromOrder.Chef}</span>
+                            <br/>
+
+                            <span>{this.props.location.state.fromOrder.Courier}</span>
                             <select value={this.state.selectedTeam}
                                     onChange={(e) => {
                                         console.log(e.target);
@@ -178,8 +197,6 @@ class OrderEditor extends React.Component {
                                         )
                                 })}
                             </select>
-                                </li>
-                                    <li className="list-group-item">Способ оплаты:
                             <select
                                 value={this.state.selectedType}
                                 onChange={(e) => {
@@ -191,22 +208,46 @@ class OrderEditor extends React.Component {
                                 {paymentTypes.map((type,index)=>{
                                     return(
                                         <React.Fragment key={index}>
-                                            {type === this.props.location.state.fromOrder.payment ?
+                                            {type === this.props.location.state.fromOrder.order.order.paymentType ?
                                                 <option selected value={type}>{type}</option>
                                                 :
                                                 <option value={type} >{type}</option>}
                                         </React.Fragment>
                                     )
+
                                 })}
                             </select>
-                              </li>
-                            </ul>
                             <h3> Информация о блюдах</h3>
-                            <MenuList/>
-                                <Button
-                                    typeBtn="btn btn-success btn-save"
-                                    submitButton="submit"
-                                >Сохранить</Button>
+                            {this.props.currentOrder ?
+                                <React.Fragment>
+                                    <MenuList
+                                        dishes={this.props.currentOrder.dishes}
+                                        amount={this.props.currentOrder.amount}
+                                        deleteItem={this.props.fetchDeleteDishInList}
+                                        role={this.props.role}
+                                    />
+                                    <MenuDrawer
+                                        onClose={this.menuCloserHandler}
+                                        id={this.props.currentOrder.order.order_id}
+                                        isOpen={this.state.menu}
+                                    />
+                                </React.Fragment>
+                                :null
+                            }
+                            {/*  <MenuToggle
+                                isOpen={this.state.menu}
+                                onToggle={this.menuCloserHandler}
+                            />*/}
+                            <Button
+                                typeBtn={"btn btn-success"}
+                                onClick={this.menuCloserHandler}
+                            >
+                                Добавить блюдо
+                            </Button>
+                            <Button
+                                typeBtn="btn btn-primary"
+                                submitButton="submit"
+                            >Сохранить</Button>
                         </form>
                     </div>
                     :
@@ -218,12 +259,19 @@ class OrderEditor extends React.Component {
 }
 function mapStateToProps(state) {
     return {
-
+        orderList:state.admin.orderList ,
+        currentOrder:state.admin.currentOrder,
+        role: state.auth.role
     }
 }
 function mapDispatchToProps(dispatch) {
     return{
-        fetchUpdateOrder:(order)=>dispatch(fetchUpdateOrder(order))
+        fetchUpdateOrder:(order)=>dispatch(fetchUpdateOrder(order)),
+        fetchOrders:()=>dispatch(fetchOrders()),
+        fetchDeleteDishFromOrder:()=>dispatch(fetchDeleteDishFromOrder()),
+        fetchAllDeishes:()=>dispatch(fetchAllDeishes()),
+        fetchDeleteDishInList:(id)=>dispatch(fetchDeleteDishInList(id))
+
     }
 }
 export default connect(mapStateToProps,mapDispatchToProps)(OrderEditor);

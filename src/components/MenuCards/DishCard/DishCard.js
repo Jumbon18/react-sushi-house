@@ -21,6 +21,7 @@ class DishCard extends React.Component {
     };
     LikedDish = () => {
         this.likeChange();
+        this.props.dish.dish_amount = 1;
         this.props.fetchLikedDish(this.props.dish);
     };
     UnlikedDish = () => {
@@ -38,7 +39,7 @@ class DishCard extends React.Component {
                                 typeBtn="btn delete-btn"
                                 onClick={() => this.props.deleteItem(this.props.dish.Dish_id)}
                             > <img src={deleteBtn}/></Button> :
-                            !this.state.like ?
+                            !this.state.like || this.props.LikedDishData.length === 0 ?
                                 <Button
                                     typeBtn="btn like-btn"
                                     onClick={() => this.LikedDish()}
@@ -52,7 +53,7 @@ class DishCard extends React.Component {
                     </div>
                     <img className="card-img" src={this.props.dish.dish_image}/>
                     <div className="card-footer">
-                        <p className="card-price">{this.props.dish.Dish_price}</p>
+                        <p className="card-price">{this.props.dish.Dish_price} грн </p>
                         {this.props.role === 'админ' ?
                             <Button
                                 typeBtn="btn btn-success"

@@ -3,7 +3,7 @@ import './Navbar.css';
 import Button from "../../UI/Button/Button";
 import userImg from "../../../images/user.png";
 import cart from "../../../images/shopping.png";
-import {Link} from "react-router-dom";
+import {Link, NavLink} from "react-router-dom";
 import CartDrawer from "../../UI/CartDrawer/CartDrawer";
 
 const Navbar = props => {
@@ -20,17 +20,18 @@ const Navbar = props => {
               <li className="nav-item active">
                   <Link to={{pathname:`/menu/rolls`}} className="nav-link" onClick={() => props.changeCategory('rolls')}>Rolls</Link>
               </li>
+              <NavLink to="/auth">
               <Button
                   typeBtn="btn nav-btn"
               > <img src={userImg} width="40px" height="40px"/></Button>
+              </NavLink>
               <Button
                   typeBtn="btn cart-btn"
                   onClick={()=>props.close()}
               > <img src={cart}/></Button>
           </ul>
           <CartDrawer
-              onClose={props.close}/*
-              id={this.props.currentOrder.order.order_id}*/
+              onClose={props.close}
               isOpen={props.menu}
           />
       </div>

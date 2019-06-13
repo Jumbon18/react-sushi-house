@@ -1,0 +1,12 @@
+.OrderCreateDish {
+     border: 1px gray solid;
+     border-radius: 15px;
+     height: auto;
+ }
+.dishes-list {
+    list-style: none;
+    padding: 0;
+}
+.dishes-list li {
+    font-size: 14px;
+}

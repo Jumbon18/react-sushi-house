@@ -33,7 +33,7 @@ const Dish = props => {
              <img className="dish-img" src={props.dish.dish_image}/>
                 <div className="dish-footer">
                     <ul className="list-group list-group-flush dish-props-list">
-                        <li className="list-group-item">Вес блюда:        {props.dish.Dish_weight}</li>
+                        <li className="list-group-item">Вес блюда:        {props.dish.Dish_weight} г </li>
                         <li className="list-group-item">Состав:    </li>
                         <ul className="list-group list-group-flush">
                             {props.products.map((product) => {
@@ -44,7 +44,7 @@ const Dish = props => {
                                 )
                             })}
                         </ul>
-                        <li className="list-group-item">Цена:     {props.dish.Dish_price}</li>
+                        <li className="list-group-item">Цена:     {props.dish.Dish_price} грн</li>
                     </ul>
                 </div>
                 <Button

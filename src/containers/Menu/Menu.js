@@ -7,11 +7,15 @@ import {fetchMenu, fetchDeleteItem} from "../../store/actions/menu";
 import Loader from "../../components/UI/Loader/Loader";
 import AdminLayout from "../../hoc/AdminLayout/AdminLayout";
 
+
 class Menu extends React.Component {
     state = {
         menu: false
     };
     componentDidMount() {
+        if(this.props.token){
+            this.props.fetchClientInfo()
+        }
         this.props.fetchMenu('sets');
     }
     CartCloserHandler = () => {

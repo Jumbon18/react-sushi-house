@@ -1,0 +1,48 @@
+.Personal{
+display: flex;
+    background-image: url("https://wallpapersite.com/images/pages/pic_h/13855.jpg");
+    background-size: cover;
+    padding-top: 100px;
+    justify-content: space-around;
+}
+.personal-icon{
+   /* width: 100px;
+    height: 100px;
+    background-color: #363d54;*/
+}
+.personal-info p{
+    font-size: 15pt;
+    color: #ffffff;
+    padding-top: 40px;
+    border-bottom: 1px solid #bebebe;
+}
+.personal-orders{
+    display: flex;
+    background-color: #ffffff;
+        border-radius: 7px;
+
+    width:65%;
+    height: 100vh;
+}
+.order-links{
+    padding: 5px;
+border-right: 2px solid #111111;
+width: 200px;
+}
+
+.order-links a{
+    color: #363d54;
+    font-size: 30px;
+    text-decoration: none;
+    background-color: white;
+    padding: 0 20px 10px 20px;
+    position: relative;
+    transition:opacity .3s;
+}
+.order-links a:hover{
+    opacity: .7;
+}
+.order-links {
+    display: flex;
+    flex-direction: column;
+}

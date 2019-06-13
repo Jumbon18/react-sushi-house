@@ -1,0 +1,44 @@
+.MenuDrawer{
+    position: fixed;
+    right: 5px;
+    top: 500px;
+    overflow: auto;
+    border-radius: 10px;
+    opacity: 1;
+    width: 430px;
+    height: 200px;
+    padding: 20px 10px;
+    box-sizing: border-box;
+    z-index: 90;
+    transition: opacity .2s ease-in-out;
+    font-family: 'Questrial', sans-serif;
+    background-color: #ffffff;
+    border: 1px solid #111111;
+}
+.MenuDrawer.close{
+
+    opacity: 0 !important;}
+.MenuDrawer ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+
+.MenuDrawer ul li{
+    margin-bottom: 25px;
+}
+/*
+.Drawer ul li a{
+    color: darkblue;
+    font-size: 30px;
+    text-decoration: none;
+    padding: 0 10px 20px 10px;
+    position: relative;
+    transition: opacity .3s;
+}
+*/
+/*
+.Drawer ul li a:hover{
+    text-shadow: 2px 2px 2px white;
+}*/

@@ -4,6 +4,7 @@ import React from "react";
 import connect from "react-redux/es/connect/connect";
 import './CartDrawerItem.css';
 import Button from "../../Button/Button";
+import deleteBtn from "../../../../images/x-button.png";
 
 const CartDrawerItem = props =>{
     return(
@@ -12,7 +13,11 @@ const CartDrawerItem = props =>{
                 <div className="dish_header">
                     <img className={'small-dish'} src={props.dish.dish_image}/>
                     <span>{props.dish.Dish_name}</span>
-                    <span>{props.dish.Dish_price}</span>
+                    <span>{props.dish.Dish_price} грн</span>
+                        <Button
+                            typeBtn="btn delete-btn-cart"
+                            onClick={() => props.deleteItem(props.dish.Dish_id)}
+                        > <img src={deleteBtn}/></Button>
                 </div>
                {/* <div className={"dish_footer"}>
                     <input type="number" id="counter" value={props.amount} min="1" onChange={props.changeAmount}/>

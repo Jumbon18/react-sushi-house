@@ -21,10 +21,10 @@ $attachment-point-border: 2px;
   height: 45px;
 }
 
-.Button:focus, .btn:focus {
+.Button:focus, .btn:focus, .delete-btn-cart:focus, .delete-order:focus {
   outline: none;
 }
-.nav-btn:focus, .cart-btn:focus, .delete-btn:focus, .like-btn:focus {
+.nav-btn:focus, .cart-btn:focus, .delete-btn:focus, .like-btn:focus, .delete-btn-cart:focus {
   box-shadow: none;
 }
 
@@ -160,8 +160,9 @@ $attachment-point-border: 2px;
 .btn-remove {
   border: 1px green solid;
   border-radius: 50%;
-  width: 54px;
-  height: 53px;
+  width: 56px;
+  height: 57px;
+  margin-right: 20px;
 }
 .nav-btn {
   margin-left: 550px;
@@ -197,7 +198,18 @@ $attachment-point-border: 2px;
 .delete-btn img{
   width: 40px;
   height: 40px;
-  margin-top: -5px;
+  margin-top: -45px;
+  margin-left: -4px;
+}
+
+.delete-btn-order {
+  margin-top: -3px !important;
+}
+
+.delete-btn-cart img {
+  width: 30px;
+  height: 30px;
+  margin-top: 5px;
 }
 .to-cart-btn {
   margin-left: 120px;

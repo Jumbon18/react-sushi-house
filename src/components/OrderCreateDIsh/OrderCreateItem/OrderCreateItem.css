@@ -1,0 +1,48 @@
+.OrderCreateItem {
+    display: flex;
+    justify-content: space-around;
+    margin: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border: 1px gray solid;
+    border-radius: 15px;
+    height: auto;
+}
+.OrderCreateItem input{
+    margin-top: 40px;
+}
+.delete-btn{
+    padding-top: 30px;
+}
+.dish {
+    width: 600px;
+    height: auto;
+    margin: 100px 0 100px 28%;
+    font-family: 'Josefin Sans', sans-serif;
+    background-color: white;
+    padding: 20px;
+    border-radius: 15px;
+}
+.dish-img {
+    margin-left: 15px;
+}
+.create-item {
+    width: 100px !important;
+    height: 100px !important;
+}
+.create-item img{
+    width: 100px !important;
+    height: 100px !important;
+}
+.item-info{
+    padding: 25px;
+}
+
+.dish-props-list {
+    width: 550px;
+}
+.dish-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}

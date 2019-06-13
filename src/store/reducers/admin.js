@@ -1,8 +1,14 @@
-import {FETCH_ORDER_START, FETCH_ORDER_SUCCESS, FETCH_ORDERS_SUCCESS} from "../actions/actionTypes";
+import {
+    FETCH_ORDER_START,
+    FETCH_ORDER_SUCCESS,
+    FETCH_ORDERS_SUCCESS,
+    FETCH_SUCCESS_DISHES
+} from "../actions/actionTypes";
 
 const initialsState={
     loading:false,
     orderList:[],
+    menuList:[],
     currentOrder:null,
     success_order:null
 };
@@ -21,6 +27,10 @@ export default function adminReducer(state = initialsState,action) {
         case FETCH_ORDER_SUCCESS:
             return{
                 ...state,currentOrder:action.order
+            };
+        case FETCH_SUCCESS_DISHES:
+            return{
+                ...state,menuList:action.menu,loading:false
             };
         default:
             return  state;

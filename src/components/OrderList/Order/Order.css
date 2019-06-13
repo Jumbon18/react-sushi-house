@@ -15,3 +15,7 @@
     background-color: transparent;
     border: none;
 }
+.delete-order img{
+    width: 25px;
+    height: 25px;
+}

@@ -1,6 +1,8 @@
 import React from 'react';
 import './Order.css';
 import {Link} from "react-router-dom";
+import Button from "../../UI/Button/Button";
+import deleteBtn from "../../../images/x-button.png";
 const Order = props =>{
     const url = `/admin/${props.order_id}`;
     return(
@@ -18,28 +20,21 @@ const Order = props =>{
             <td>{props.status}</td>
             <td className="order-td">
                 <Link to={
-                    {pathname:`/admin/order/${props.order_id}`,
-                    state:{
-                        fromOrder:{
-                       /*     price:'550 грн',
-                            Chef:'Ирина Телешева',
-                            Courier:'Иван Иванов',*/
-                            start:props.start,
-                            end:props.end,
-                            address:props.address,
-                            email:props.email,
-                            name:props.FIO,
-                            phone:props.phone,
-                            payment:props.payment,
-                            notes:props.notes,
-                            status:props.status,
-                            id:props.order_id
+                    {pathname:`/admin/${props.order_id }`,
+                        state:{
+                            fromOrder:{
+                                order:props.order
+                            }
                         }
                     }
-                    }
                 }>
-                    <button className="btn-edit btn btn-primary">Edit</button>
-                </Link>
+
+                        <Button typeBtn="btn-edit btn btn-outline-primary" onClick={()=>props.currentOrder(props.order_id )}>Edit</Button>
+                     </Link>
+                <Button
+                    typeBtn="btn delete-order"
+                    onClick={() => props.deleteAdminOrder(props.order_id)}
+                > <img src={deleteBtn}/></Button>
             </td>
         </tr>
     );

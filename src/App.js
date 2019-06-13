@@ -11,6 +11,9 @@ import DishView from "./containers/DishView/DishView";
 import DishCard from "./components/MenuCards/DishCard/DishCard";
 import AdminLayout from "./hoc/AdminLayout/AdminLayout";
 import Products from "./containers/Products/Products";
+import OrderCreator from "./containers/OrderCreator/OrderCreator";
+import Success from "./containers/Success/Success";
+import Personal from "./containers/Personal/Personal";
 
 class App extends Component {
     render() {
@@ -24,9 +27,14 @@ class App extends Component {
                 <Route path="/menu/dish/:id" component={DishView}/>
                 <Route path="/admin/menu" exact component={Menu}/>
                 <Route path="/admin/products" component={Products}/>
+
                 <Route path="/menu/sets" exact component={Menu}/>
                 <Route path="/menu/sushi" exact component={Menu}/>
                 <Route path="/menu/rolls" exact component={Menu}/>
+
+                <Route path="/menu/createOrder" exact component={OrderCreator}/>
+                <Route path="/personal/:id" exact component={Personal}/>
+                <Route path="/success/purchase" exact component={Success}/>
                 <Redirect to="/"/>
             </Switch>
         );

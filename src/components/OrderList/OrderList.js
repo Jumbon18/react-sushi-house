@@ -3,7 +3,6 @@ import Order from "./Order/Order";
 import {connect} from "react-redux";
 import './OrderList.css';
 const OrderList = props =>{
-
     return(
        <table className="order-table">
        <thead>
@@ -41,11 +40,13 @@ const OrderList = props =>{
                             start={`${res1}${res2}`}
                             end={order.order.Delivery_time}
                             email={order.order.client_email}
+                            deleteAdminOrder={props.deleteOrder}
+                            currentOrder={props.currentOrder}
                         >
                         </Order>
                     )
                 }) :
-                <tr><td><h1 className="Error">NO RESULT</h1></td></tr>
+                <tr><td><h2 className="Error">There are no orders</h2></td></tr>
             }
             </tbody>
 </table>

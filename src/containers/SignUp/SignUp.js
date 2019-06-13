@@ -5,8 +5,8 @@ import Button from "../../components/UI/Button/Button";
 import Input from "../../components/UI/Input/Input";
 import is from 'is_js';
 import validator from 'validator';
-import {auth} from "../../store/actions/auth";
-import {signUp} from "../../store/actions/signUp";
+import {auth, signUp} from "../../store/actions/auth";
+import {Redirect} from "react-router-dom";
 
 
 class SignUp extends React.Component {
@@ -68,7 +68,7 @@ class SignUp extends React.Component {
                 value: '',
                 type: 'text',
                 label: 'Phone number',
-                placeholder: '+38(0XX)-XXX-XX-XX',
+                placeholder: 'Enter the phone number',
                 errorMessage: 'Enter the proper phone number',
                 valid: false,
                 touched: false,
@@ -99,10 +99,10 @@ class SignUp extends React.Component {
     submitHandler = async(e)=>{
         e.preventDefault();
         const user = {
-            email:this.state.formControl.email.value,
-            password: this.state.formControl.password.value,
-            secondName: this.state.formControl.secondName.value,
-            phone: this.state.formControl.phone_number.value,
+            Email:this.state.formControl.email.value,
+            Password: this.state.formControl.password.value,
+            lastName: this.state.formControl.secondName.value,
+            Phone_number: this.state.formControl.phone_number.value,
             firstName: this.state.formControl.password.value,
         };
         this.props.signUp(user);
@@ -155,6 +155,7 @@ render(){
     return(
     <div className={'SignUp'}>
         <div>
+            {this.props.token ? <Redirect to={'/menu'}/> : null}
             <form onSubmit={this.submitHandler} className="auth-form signup">
                <div>{this.renderInputs()}</div>
                 <div className="auth-buttons mt-5">
@@ -163,6 +164,7 @@ render(){
 
             </form>
         </div>
+
     </div>
     )
 }
@@ -170,7 +172,7 @@ render(){
 
 function mapStateToProps(state) {
     return {
-
+        token:state.auth.token
     }
 }
 function mapDispatchToProps(dispatch) {

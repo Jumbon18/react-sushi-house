@@ -18,8 +18,11 @@ class Drawer extends React.Component{
                 <nav className={cls.join(' ')}>
                     <ul>
                         <li className="drawer-list">
-                            <NavLink to="/admin/menu">Menu</NavLink>
-                            <NavLink to="/admin/products">Products</NavLink>
+                            <NavLink to="/admin">Главная</NavLink>
+                            <NavLink to="/admin/menu">Меню</NavLink>
+                            <NavLink to="/admin/products">Продукты</NavLink>
+                            <NavLink to="/admin/products">Текущие заказы</NavLink>
+                            <NavLink to="/admin/products">Выполненные заказы</NavLink>
                         </li>
                     </ul>
                 </nav>

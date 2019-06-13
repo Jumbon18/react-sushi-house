@@ -1,14 +1,14 @@
 import React from 'react';
 import {connect} from "react-redux";
-import {fetchOrders} from "../../store/actions/admin";
+import {fetchOrders, fetchSubCurrentOrder} from "../../store/actions/admin";
 import OrderList from "../../components/OrderList/OrderList";
 import './Admin.css';
 import AdminLayout from "../../hoc/AdminLayout/AdminLayout";
+import {fetchDeleteOrder} from "../../store/actions/admin";
 
 class Admin extends React.Component {
     componentDidMount() {
         this.props.fetchOrders();
-
     }
 
     render() {
@@ -19,6 +19,8 @@ class Admin extends React.Component {
             <div className="Admin">
                 <OrderList
                     orderList={this.props.orderList}
+                    deleteOrder={this.props.fetchDeleteOrder}
+                    currentOrder={this.props.fetchSubCurrentOrder}
                 />
             </div>
             </AdminLayout>
@@ -28,7 +30,9 @@ class Admin extends React.Component {
 
 function mapDispatchToProps(dispatch) {
     return {
-        fetchOrders: () => dispatch(fetchOrders())
+        fetchOrders: () => dispatch(fetchOrders()),
+        fetchDeleteOrder: (id) => dispatch(fetchDeleteOrder(id)),
+        fetchSubCurrentOrder:(id)=>dispatch(fetchSubCurrentOrder(id)),
     }
 }
 

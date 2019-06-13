@@ -1,5 +1,5 @@
 import axios from "axios";
-import {FETCH_DISH_START, FETCH_DISH_SUCCESS, FETCH_LIKE_SUCCESS} from "./actionTypes";
+import {FETCH_DISH_START, FETCH_DISH_SUCCESS, FETCH_LIKE_SUCCESS, FETCH_UPDATE_AMOUNT_DISH} from "./actionTypes";
 
 export function fetchDish(id) {
     return async dispatch => {
@@ -11,6 +11,33 @@ export function fetchDish(id) {
     }
 }
 
+/*export function fetchDishProducts(id) {
+    return async dispatch => {
+        try {
+
+        } catch (e) {
+            console.log(`Error in fetching dish products! ${e}`);
+        }
+    }
+}*/
+
+export function fetchLoadToAdmin(order) {
+  return async (dispatch,getState)=>
+    {
+        try {
+            const newOrder = await axios.post(`http://localhost:3030/client/order`,order);
+            console.log(newOrder);
+        } catch (e) {
+            console.log(e);
+        }
+    }
+  }
+  export function fetchUpdateAmount(id,amount) {
+      return{
+          type:FETCH_UPDATE_AMOUNT_DISH,
+          amount,id
+      }
+  }
 export function fetchLikedDish(dishData) {
     return (dispatch, getState) => {
         const newItem = [...getState().dish.likedDishData];
@@ -23,10 +50,10 @@ export function fetchLikedDish(dishData) {
 export function fetchUnlikedDish(id) {
     return (dispatch, getState) => {
         const newLikes = [...getState().dish.likedDishData];
-        const deletedItem = newLikes.findIndex(el => el.id === id);
-        const newItem = newLikes.splice(deletedItem, 1);
-        console.log(newItem);
-        dispatch(fetchLikeSuccess(newItem));
+        const deletedItem = newLikes.findIndex(el => el.Dish_id === id);
+        console.log(deletedItem);
+        newLikes.splice(deletedItem, 1);
+        dispatch(fetchLikeSuccess(newLikes));
     }
 }
 

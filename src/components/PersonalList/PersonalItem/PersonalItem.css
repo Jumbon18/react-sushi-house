@@ -1,0 +1,36 @@
+.PersonalItem {
+    display: flex;
+    font-size: 15pt;
+    justify-content: space-around;
+    margin: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border: 1px gray solid;
+    border-radius: 15px;
+    height: auto;
+}
+
+.dish {
+    width: 600px;
+    height: auto;
+    margin: 100px 0 100px 28%;
+    font-family: 'Josefin Sans', sans-serif;
+    background-color: white;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+
+.item-info{
+    padding: 10px;
+    width: 235px;
+}
+
+.dish-props-list {
+    width: 550px;
+}
+.dish-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}

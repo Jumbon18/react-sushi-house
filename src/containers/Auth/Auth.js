@@ -5,6 +5,7 @@ import Button from "../../components/UI/Button/Button";
 import Input from "../../components/UI/Input/Input";
 import is from 'is_js';
 import {auth} from "../../store/actions/auth";
+import {Redirect} from "react-router-dom";
 
 class Auth extends React.Component {
     _isMounted = false;
@@ -64,7 +65,7 @@ class Auth extends React.Component {
             event.preventDefault();
             const user = await this.props.auth(this.state.formControl.email.value,
                 this.state.formControl.password.value);
-            //    window.location = `/admin`
+
         } catch (e) {
             this.setState({
                 errorAuth: true
@@ -115,10 +116,20 @@ class Auth extends React.Component {
             )
         });
     }
-
+    definitionRole = () => {
+        if(this.props.token) {
+            if (this.props.role === 'админ') {
+                return <Redirect to={'/admin'}/>
+            }else {
+                console.log('asdas');
+                return <Redirect to={'/menu'}/>
+            }
+        }
+    };
     render() {
         return (
             <div className={'Auth'}>
+                {this.definitionRole()}
                 <div className="alert alert-danger invalid-Auth" id="errorMessage" role="alert">
 
                 </div>
@@ -143,7 +154,10 @@ class Auth extends React.Component {
 };
 
 function mapStateToProps(state) {
-    return {}
+    return {
+        token: state.auth.token,
+        role: state.auth.role
+    }
 }
 
 function mapDispatchToProps(dispatch) {

@@ -7,12 +7,12 @@ import CartDrawerItem from "./CartDrawerItem/CartDrawerItem";
 import {connect} from "react-redux";
 import Button from "../Button/Button";
 import likeOutlined from "../../../images/like-outlined.png";
+import Navbar from "../../Navigation/Navbar/Navbar";
+import {fetchUnlikedDish} from "../../../store/actions/dish";
 //import {fetchAllDishes, fetchUpdatedSingleOrder} from "../../../store/actions/admin";
 
 class CartDrawer extends React.Component{
-    state = {
-        amount: 1
-    };
+
     clickHandler = () =>{
         this.props.onClose();
     };
@@ -42,42 +42,33 @@ class CartDrawer extends React.Component{
         }
 
         return(
+               <React.Fragment>
                 <div className={cls.join(' ')}>
+                    <ul>
                             {this.props.LikedDishData.length > 0 ? this.props.LikedDishData.map((el, index) => {
-                            return(
+                                return(
                                 <CartDrawerItem
                                     dish={el}
                                     key={el.Dish_name}
-                                    amount={this.state.amount}
+                                    deleteItem={this.props.fetchUnlikedDish}
+                                    dishes={this.props.LikedDishData}
                                 />
-                            )})  : null }
+                                )}): null }
+                    </ul>
                     {this.props.LikedDishData.length > 0 ?
+                          <NavLink to="/menu/createOrder">
                             <Button
                                 typeBtn="btn btn-info to-cart-btn"
-                                /*  onClick={() => this.LikedDish()}*/
                             >Оформить заказ</Button>
+                          </NavLink>
                             :
                         <h4>Корзина пуста</h4>
                         }
-                  {/*  <ul>
-                        {this.props.menuList.length > 0 ?
-                            this.props.menuList.map((el,index)=>{*/}
-                           {/*     return (*/}
-                                  {/*  <CartDrawerItem
-                                        dish={el}
-                                        key={index}
-                                        //onAddItem={this.onAddItem}
-                                        amount={this.state.amount}
-                                        //changeAmount={this.onChangeAmount}
-                                    />*/}
-                              {/*  )})*/}
-                       {/*    :
-                            null
-                        }
-                    </ul>*/}
+                </div>
        {this.props.isOpen ? <BackCart onClose={this.props.onClose}/>
            : null }
-                </div>
+
+               </React.Fragment>
         );
     }
 }
@@ -91,6 +82,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return{
         //fetchUpdatedSingleOrder:(dish)=>dispatch(fetchUpdatedSingleOrder(dish))
+        fetchUnlikedDish:(id) => dispatch(fetchUnlikedDish(id))
     }
 }
 export default connect(mapStateToProps,mapDispatchToProps)(CartDrawer);

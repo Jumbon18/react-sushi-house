@@ -7,6 +7,7 @@
     background-image: url("../../images/gradient-3111x1400-colorful-hd-15305.png");
     background-size: cover;
     font-family: 'Exo 2', sans-serif;
+    height: 100vh;
 }
 .Admin div {
     width: 100%;
